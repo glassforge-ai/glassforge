@@ -1,0 +1,154 @@
+{
+  "pods": [
+    {
+      "name": "Alamofire",
+      "spm_url": "https://github.com/Alamofire/Alamofire.git",
+      "migration_difficulty": "low",
+      "notes": "Official SPM support; straightforward migration."
+    },
+    {
+      "name": "RxSwift",
+      "spm_url": "https://github.com/ReactiveX/RxSwift.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported; verify any Carthage-specific integration."
+    },
+    {
+      "name": "Firebase/Core",
+      "spm_url": "https://github.com/firebase/firebase-ios-sdk.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported; module structure differs from CocoaPods."
+    },
+    {
+      "name": "Firebase",
+      "spm_url": "https://github.com/firebase/firebase-ios-sdk.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported; module structure differs from CocoaPods."
+    },
+    {
+      "name": "SnapKit",
+      "spm_url": "https://github.com/SnapKit/SnapKit.git",
+      "migration_difficulty": "low",
+      "notes": "Official SPM support."
+    },
+    {
+      "name": "Kingfisher",
+      "spm_url": "https://github.com/onevcat/Kingfisher.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported."
+    },
+    {
+      "name": "SDWebImage",
+      "spm_url": "https://github.com/SDWebImage/SDWebImage.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported."
+    },
+    {
+      "name": "LegacyKit",
+      "spm_url": null,
+      "migration_difficulty": "high",
+      "notes": "No SPM support; evaluate alternatives or maintain CocoaPods."
+    },
+    {
+      "name": "Moya",
+      "spm_url": "https://github.com/Moya/Moya.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported; networking abstraction layer over Alamofire."
+    },
+    {
+      "name": "Realm",
+      "spm_url": "https://github.com/realm/realm-swift.git",
+      "migration_difficulty": "high",
+      "notes": "SPM supported but complex; binary framework with C++ core."
+    },
+    {
+      "name": "RealmSwift",
+      "spm_url": "https://github.com/realm/realm-swift.git",
+      "migration_difficulty": "high",
+      "notes": "SPM supported but complex; depends on Realm core binary."
+    },
+    {
+      "name": "SwiftyJSON",
+      "spm_url": "https://github.com/SwiftyJSON/SwiftyJSON.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported. Consider migrating to native Codable."
+    },
+    {
+      "name": "ObjectMapper",
+      "spm_url": "https://github.com/tristanhimmelman/ObjectMapper.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported. Consider migrating to native Codable."
+    },
+    {
+      "name": "MBProgressHUD",
+      "spm_url": "https://github.com/jdg/MBProgressHUD.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported; consider SwiftUI ProgressView for new screens."
+    },
+    {
+      "name": "SVProgressHUD",
+      "spm_url": "https://github.com/SVProgressHUD/SVProgressHUD.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported; consider SwiftUI ProgressView for new screens."
+    },
+    {
+      "name": "IQKeyboardManagerSwift",
+      "spm_url": "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported; iOS 15+ keyboard avoidance may reduce need."
+    },
+    {
+      "name": "Charts",
+      "spm_url": "https://github.com/ChartsOrg/Charts.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported; consider Swift Charts framework for iOS 16+."
+    },
+    {
+      "name": "lottie-ios",
+      "spm_url": "https://github.com/airbnb/lottie-ios.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported; animation library."
+    },
+    {
+      "name": "Hero",
+      "spm_url": "https://github.com/HeroTransitions/Hero.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported; consider native SwiftUI transitions for new screens."
+    },
+    {
+      "name": "R.swift",
+      "spm_url": "https://github.com/mac-cain13/R.swift.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported via plugin; setup differs significantly from CocoaPods."
+    },
+    {
+      "name": "CocoaLumberjack",
+      "spm_url": "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
+      "migration_difficulty": "low",
+      "notes": "SPM supported; consider OSLog/Logger for new code."
+    },
+    {
+      "name": "FMDB",
+      "spm_url": "https://github.com/ccgus/fmdb.git",
+      "migration_difficulty": "medium",
+      "notes": "SPM supported; consider SwiftData or GRDB for modern Swift."
+    },
+    {
+      "name": "Texture",
+      "spm_url": null,
+      "migration_difficulty": "high",
+      "notes": "No official SPM support; complex UI framework, evaluate migration to SwiftUI."
+    },
+    {
+      "name": "AsyncDisplayKit",
+      "spm_url": null,
+      "migration_difficulty": "high",
+      "notes": "Renamed to Texture; no SPM support. Evaluate migration to SwiftUI."
+    },
+    {
+      "name": "IGListKit",
+      "spm_url": "https://github.com/nicklama/IGListKit-SPM.git",
+      "migration_difficulty": "medium",
+      "notes": "Community SPM fork available; consider UICollectionView compositional layout."
+    }
+  ]
+}

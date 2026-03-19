@@ -1,0 +1,118 @@
+{
+  "positive_signals": [
+    {
+      "pattern": ".glassEffect(",
+      "kind": "glassEffect",
+      "description": "Using native Liquid Glass material API",
+      "notes": "Good: native Liquid Glass adoption."
+    },
+    {
+      "pattern": "GlassEffectContainer",
+      "kind": "glassEffectContainer",
+      "description": "Using GlassEffectContainer for unified glass composition",
+      "notes": "Good: shared sampling region improves GPU performance."
+    },
+    {
+      "pattern": ".glassEffectID(",
+      "kind": "glassEffectID",
+      "description": "Using glassEffectID for morphing transitions",
+      "notes": "Good: enables seamless glass morphing between states."
+    },
+    {
+      "pattern": ".glassEffect(.regular",
+      "kind": "glassEffectRegular",
+      "description": "Using regular glass variant for standard controls",
+      "notes": "Good: correct variant for nav bars, toolbars, tab bars."
+    },
+    {
+      "pattern": ".glassEffect(.clear",
+      "kind": "glassEffectClear",
+      "description": "Using clear glass variant for floating controls",
+      "notes": "Good: transparent variant for media-rich backgrounds."
+    }
+  ],
+  "migration_targets": [
+    {
+      "pattern": ".ultraThinMaterial",
+      "kind": "legacyMaterial",
+      "replacement": ".glassEffect(.clear)",
+      "severity": "medium",
+      "description": "Legacy material should migrate to Liquid Glass",
+      "notes": "Replace with .glassEffect(.clear) for Liquid Glass compliance."
+    },
+    {
+      "pattern": ".thinMaterial",
+      "kind": "legacyMaterial",
+      "replacement": ".glassEffect(.regular)",
+      "severity": "medium",
+      "description": "Legacy material should migrate to Liquid Glass",
+      "notes": "Replace with .glassEffect(.regular) for Liquid Glass compliance."
+    },
+    {
+      "pattern": ".regularMaterial",
+      "kind": "legacyMaterial",
+      "replacement": ".glassEffect(.regular)",
+      "severity": "medium",
+      "description": "Legacy material should migrate to Liquid Glass",
+      "notes": "Replace with .glassEffect(.regular) for Liquid Glass compliance."
+    },
+    {
+      "pattern": ".thickMaterial",
+      "kind": "legacyMaterial",
+      "replacement": ".glassEffect(.regular)",
+      "severity": "medium",
+      "description": "Legacy material should migrate to Liquid Glass",
+      "notes": "Replace with .glassEffect(.regular) for standard Liquid Glass."
+    },
+    {
+      "pattern": ".bar",
+      "kind": "legacyBarMaterial",
+      "replacement": ".glassEffect(.regular)",
+      "severity": "low",
+      "description": "Bar material may need Liquid Glass migration",
+      "notes": "Check if used as background material; consider .glassEffect(.regular)."
+    }
+  ],
+  "anti_patterns": [
+    {
+      "pattern": ".blur(radius:",
+      "kind": "manualBlur",
+      "severity": "high",
+      "description": "Manual blur does not respect system accessibility overrides",
+      "replacement": ".glassEffect()",
+      "notes": "Replace manual .blur(radius:) with native .glassEffect() API. Manual blurs ignore Reduce Transparency and Increase Contrast settings."
+    },
+    {
+      "pattern": ".opacity(0.",
+      "kind": "hardCodedOverlay",
+      "severity": "medium",
+      "description": "Hard-coded opacity overlay may conflict with Liquid Glass",
+      "replacement": ".glassEffect(.clear) or .glassEffect(.regular)",
+      "notes": "Hard-coded .opacity() overlays on backgrounds bypass system accessibility. Use native glass materials instead."
+    },
+    {
+      "pattern": "VisualEffectView",
+      "kind": "legacyVisualEffect",
+      "severity": "medium",
+      "description": "UIVisualEffectView should be replaced with Liquid Glass",
+      "replacement": ".glassEffect() or GlassEffectContainer",
+      "notes": "UIVisualEffectView is a legacy blur mechanism. Migrate to SwiftUI Liquid Glass APIs."
+    },
+    {
+      "pattern": "UIBlurEffect",
+      "kind": "legacyBlurEffect",
+      "severity": "medium",
+      "description": "UIBlurEffect should be replaced with Liquid Glass",
+      "replacement": ".glassEffect()",
+      "notes": "UIBlurEffect is the UIKit legacy blur. Use native .glassEffect() for iOS 26."
+    },
+    {
+      "pattern": "UIVibrancyEffect",
+      "kind": "legacyVibrancyEffect",
+      "severity": "medium",
+      "description": "UIVibrancyEffect should migrate to Liquid Glass",
+      "replacement": ".glassEffect() with tint modifiers",
+      "notes": "UIVibrancyEffect is legacy. Liquid Glass handles vibrancy natively."
+    }
+  ]
+}

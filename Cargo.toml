@@ -1,0 +1,105 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/gf-core",
+    "crates/gf-db",
+    "crates/gf-agent",
+    "crates/gf-process",
+    "crates/gf-safety",
+    "crates/gf-git",
+    "crates/gf-persona",
+    "crates/gf-org",
+    "crates/gf-governance",
+    "crates/gf-parse",
+    "crates/gf-graph",
+    "crates/gf-metrics",
+    "crates/gf-analyze",
+    "crates/gf-diagram",
+    "crates/gf-search",
+    "crates/gf-llm",
+    "crates/gf-narrate",
+    "crates/gf-learn",
+    "crates/gf-harvest",
+    "crates/gf-export",
+    "crates/gf-api",
+    "crates/gf-mcp",
+    "crates/gf-app",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "MIT"
+repository = "https://github.com/glassforge-ai/glassforge"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Web framework
+axum = { version = "0.7", features = ["ws", "macros"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "trace", "fs"] }
+
+# Database
+rusqlite = { version = "0.31", features = ["bundled"] }
+r2d2 = "0.8"
+r2d2_sqlite = "0.24"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# IDs
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# MCP
+rmcp = { version = "0.17", features = ["server", "transport-io"] }
+
+# Tree-sitter
+tree-sitter = "0.22"
+
+# Caching
+moka = { version = "0.12", features = ["future"] }
+
+# Embedded frontend
+rust-embed = { version = "8", features = ["mime-guess"] }
+
+# Error handling
+thiserror = "1"
+anyhow = "1"
+
+# Internal crates
+gf-core = { path = "crates/gf-core" }
+gf-db = { path = "crates/gf-db" }
+gf-agent = { path = "crates/gf-agent" }
+gf-process = { path = "crates/gf-process" }
+gf-safety = { path = "crates/gf-safety" }
+gf-git = { path = "crates/gf-git" }
+gf-persona = { path = "crates/gf-persona" }
+gf-org = { path = "crates/gf-org" }
+gf-governance = { path = "crates/gf-governance" }
+gf-parse = { path = "crates/gf-parse" }
+gf-graph = { path = "crates/gf-graph" }
+gf-metrics = { path = "crates/gf-metrics" }
+gf-analyze = { path = "crates/gf-analyze" }
+gf-diagram = { path = "crates/gf-diagram" }
+gf-search = { path = "crates/gf-search" }
+gf-llm = { path = "crates/gf-llm" }
+gf-narrate = { path = "crates/gf-narrate" }
+gf-learn = { path = "crates/gf-learn" }
+gf-harvest = { path = "crates/gf-harvest" }
+gf-export = { path = "crates/gf-export" }
+gf-api = { path = "crates/gf-api" }
+gf-mcp = { path = "crates/gf-mcp" }

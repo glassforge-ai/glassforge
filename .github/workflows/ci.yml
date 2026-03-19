@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  rust:
+    name: Rust (build + test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo check --workspace
+      - run: cargo test --workspace
+      - run: cargo clippy --workspace -- -D warnings
+
+  scanner:
+    name: Swift Scanner
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build scanner
+        run: cd scanner && swift build -c release
+      - name: Test scanner
+        run: cd scanner && swift test

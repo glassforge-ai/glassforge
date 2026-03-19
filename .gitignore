@@ -1,0 +1,31 @@
+# Rust
+target/
+Cargo.lock
+
+# Swift
+scanner/.build/
+scanner/.swiftpm/
+scanner/DerivedData/
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.svelte-kit/
+
+# SQLite
+*.db
+*.db-wal
+*.db-shm
+
+# IDE
+.idea/
+.vscode/
+*.xcodeproj
+*.xcworkspace
+
+# OS
+.DS_Store
+
+# Generated
+glassforge-artifact.json
+glassforge_report.md

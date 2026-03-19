@@ -1,0 +1,202 @@
+[
+  {
+    "symbol": "UIWebView",
+    "since_sdk": 26,
+    "replacement": "WKWebView",
+    "severity": "blocking",
+    "category": "web",
+    "notes": "Removed from iOS 26 SDK; replace with WKWebView."
+  },
+  {
+    "symbol": "UISearchDisplayController",
+    "since_sdk": 26,
+    "replacement": "UISearchController",
+    "severity": "high",
+    "category": "ui",
+    "notes": "Legacy search controller; use UISearchController with modern navigation patterns."
+  },
+  {
+    "symbol": "ALAssetsLibrary",
+    "since_sdk": 26,
+    "replacement": "PHPhotoLibrary / Photos framework",
+    "severity": "high",
+    "category": "media",
+    "notes": "Deprecated photo library API; migrate to Photos framework."
+  },
+  {
+    "symbol": "UILocalNotification",
+    "since_sdk": 26,
+    "replacement": "UNUserNotificationCenter",
+    "severity": "high",
+    "category": "notifications",
+    "notes": "Legacy local notifications; use UserNotifications framework."
+  },
+  {
+    "symbol": "openURL(",
+    "since_sdk": 26,
+    "replacement": "open(_:options:completionHandler:)",
+    "severity": "medium",
+    "category": "system",
+    "notes": "Use UIApplication.open(_:options:completionHandler:) for URLs."
+  },
+  {
+    "symbol": "keyWindow",
+    "since_sdk": 26,
+    "replacement": "UIWindowScene.keyWindow or connectedScenes",
+    "severity": "high",
+    "category": "ui",
+    "notes": "keyWindow deprecated; use window scene API."
+  },
+  {
+    "symbol": "UIApplication.shared.keyWindow",
+    "since_sdk": 26,
+    "replacement": "UIWindowScene.keyWindow",
+    "severity": "high",
+    "category": "ui",
+    "notes": "Use scene-based window access."
+  },
+  {
+    "symbol": "UIApplication.shared.windows",
+    "since_sdk": 26,
+    "replacement": "UIWindowScene.windows",
+    "severity": "high",
+    "category": "ui",
+    "notes": "Use window scene API."
+  },
+  {
+    "symbol": "statusBarFrame",
+    "since_sdk": 26,
+    "replacement": "Safe area insets or statusBarManager",
+    "severity": "medium",
+    "category": "ui",
+    "notes": "Prefer safe area layout."
+  },
+  {
+    "symbol": "UIScreen.main.bounds",
+    "since_sdk": 26,
+    "replacement": "Window or scene bounds",
+    "severity": "medium",
+    "category": "ui",
+    "notes": "Prefer scene or view-relative bounds."
+  },
+  {
+    "symbol": "UIAlertView",
+    "since_sdk": 26,
+    "replacement": "UIAlertController",
+    "severity": "high",
+    "category": "ui",
+    "notes": "UIAlertView removed; use UIAlertController with .alert style."
+  },
+  {
+    "symbol": "UIActionSheet",
+    "since_sdk": 26,
+    "replacement": "UIAlertController with .actionSheet style",
+    "severity": "high",
+    "category": "ui",
+    "notes": "UIActionSheet removed; use UIAlertController with .actionSheet style."
+  },
+  {
+    "symbol": "UIMenuController.shared",
+    "since_sdk": 26,
+    "replacement": "UIEditMenuInteraction",
+    "severity": "medium",
+    "category": "ui",
+    "notes": "UIMenuController deprecated; use UIEditMenuInteraction for context menus."
+  },
+  {
+    "symbol": "UIPopoverController",
+    "since_sdk": 26,
+    "replacement": "UIPopoverPresentationController",
+    "severity": "high",
+    "category": "ui",
+    "notes": "UIPopoverController removed; use UIPopoverPresentationController."
+  },
+  {
+    "symbol": "ABAddressBook",
+    "since_sdk": 26,
+    "replacement": "CNContactStore / Contacts framework",
+    "severity": "high",
+    "category": "contacts",
+    "notes": "AddressBook framework removed; migrate to Contacts framework."
+  },
+  {
+    "symbol": "ABPeoplePickerNavigationController",
+    "since_sdk": 26,
+    "replacement": "CNContactPickerViewController",
+    "severity": "high",
+    "category": "contacts",
+    "notes": "Legacy contacts picker; use CNContactPickerViewController."
+  },
+  {
+    "symbol": "UIAccelerometer",
+    "since_sdk": 26,
+    "replacement": "CMMotionManager",
+    "severity": "medium",
+    "category": "sensors",
+    "notes": "UIAccelerometer deprecated; use CoreMotion CMMotionManager."
+  },
+  {
+    "symbol": "MPMoviePlayerController",
+    "since_sdk": 26,
+    "replacement": "AVPlayerViewController",
+    "severity": "high",
+    "category": "media",
+    "notes": "MPMoviePlayerController removed; use AVPlayerViewController."
+  },
+  {
+    "symbol": "NSURLConnection",
+    "since_sdk": 26,
+    "replacement": "URLSession",
+    "severity": "high",
+    "category": "networking",
+    "notes": "NSURLConnection deprecated; use URLSession for all networking."
+  },
+  {
+    "symbol": "UIApplication.shared.statusBarStyle",
+    "since_sdk": 26,
+    "replacement": "preferredStatusBarStyle on UIViewController",
+    "severity": "medium",
+    "category": "ui",
+    "notes": "Direct status bar manipulation deprecated; override preferredStatusBarStyle."
+  },
+  {
+    "symbol": "UIApplication.shared.isStatusBarHidden",
+    "since_sdk": 26,
+    "replacement": "prefersStatusBarHidden on UIViewController",
+    "severity": "medium",
+    "category": "ui",
+    "notes": "Direct status bar visibility deprecated; override prefersStatusBarHidden."
+  },
+  {
+    "symbol": "UIApplication.shared.setStatusBarOrientation",
+    "since_sdk": 26,
+    "replacement": "UIViewController orientation methods",
+    "severity": "medium",
+    "category": "ui",
+    "notes": "Direct orientation control deprecated; use supported interface orientations."
+  },
+  {
+    "symbol": "UIStoryboard(name:",
+    "since_sdk": 26,
+    "replacement": "SwiftUI views or programmatic UIKit",
+    "severity": "low",
+    "category": "ui",
+    "notes": "Storyboard instantiation is supported but consider SwiftUI for new screens."
+  },
+  {
+    "symbol": "performSelector",
+    "since_sdk": 26,
+    "replacement": "Direct method calls or closures",
+    "severity": "medium",
+    "category": "runtime",
+    "notes": "performSelector is unsafe in Swift; use direct method calls or closures."
+  },
+  {
+    "symbol": "UIApplication.shared.beginBackgroundTask",
+    "since_sdk": 26,
+    "replacement": "BGTaskScheduler",
+    "severity": "low",
+    "category": "system",
+    "notes": "Consider BGTaskScheduler for structured background work."
+  }
+]

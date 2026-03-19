@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: macos-14
+            target: aarch64-apple-darwin
+            artifact: glassforge-macos-arm64
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            artifact: glassforge-linux-x86_64
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Package
+        run: |
+          mkdir -p dist
+          cp target/release/glassforge dist/ 2>/dev/null || cp target/release/glassforge.exe dist/ 2>/dev/null
+          cd dist && tar czf ${{ matrix.artifact }}.tar.gz glassforge*
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: dist/${{ matrix.artifact }}.tar.gz
+
+  scanner:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build scanner
+        run: cd scanner && swift build -c release
+      - name: Package scanner
+        run: |
+          mkdir -p dist
+          cp scanner/.build/release/glassforge-scan dist/
+          cd dist && tar czf glassforge-scan-macos-arm64.tar.gz glassforge-scan
+      - uses: actions/upload-artifact@v4
+        with:
+          name: glassforge-scan-macos-arm64
+          path: dist/glassforge-scan-macos-arm64.tar.gz
+
+  release:
+    needs: [build, scanner]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            **/*.tar.gz
+          generate_release_notes: true
