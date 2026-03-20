@@ -5,3 +5,7 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
+gf-core = { workspace = true }
+regex = "1"
+serde = { workspace = true }
+serde_json = { workspace = true }

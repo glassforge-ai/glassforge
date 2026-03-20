@@ -5,3 +5,15 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
+gf-agent = { workspace = true }
+gf-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tokio = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true }

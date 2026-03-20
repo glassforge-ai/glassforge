@@ -29,7 +29,7 @@ members = [
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.75"
+rust-version = "1.80"
 license = "MIT"
 repository = "https://github.com/glassforge-ai/glassforge"
 
@@ -75,6 +75,12 @@ moka = { version = "0.12", features = ["future"] }
 
 # Embedded frontend
 rust-embed = { version = "8", features = ["mime-guess"] }
+
+# HTTP types
+http = "1"
+
+# Channels
+crossbeam-channel = "0.5"
 
 # Error handling
 thiserror = "1"
