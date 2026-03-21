@@ -24,6 +24,7 @@ members = [
     "crates/gf-api",
     "crates/gf-mcp",
     "crates/gf-app",
+    "crates/gf-migrate",
 ]
 
 [workspace.package]
@@ -109,3 +110,4 @@ gf-harvest = { path = "crates/gf-harvest" }
 gf-export = { path = "crates/gf-export" }
 gf-api = { path = "crates/gf-api" }
 gf-mcp = { path = "crates/gf-mcp" }
+gf-migrate = { path = "crates/gf-migrate" }
