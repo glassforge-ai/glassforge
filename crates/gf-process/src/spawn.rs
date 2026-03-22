@@ -37,9 +37,11 @@ impl Default for SpawnConfig {
                 "--output-format".into(),
                 "stream-json".into(),
                 "--verbose".into(),
+                "--dangerously-skip-permissions".into(),
             ],
             working_dir: None,
             env_remove: vec![
+                // Remove to avoid recursion detection and force Max subscription auth.
                 "CLAUDECODE".to_string(),
                 "ANTHROPIC_API_KEY".to_string(),
             ],

@@ -73,7 +73,9 @@ public struct SwiftAnalyzer: Sendable {
         }
         for url in allCodeFiles {
             guard let content = try? String(contentsOf: url, encoding: .utf8) else { continue }
-            let relativePath = url.path.replacingOccurrences(of: repoRoot.path + "/", with: "")
+            let resolvedRoot = repoRoot.standardizedFileURL.path
+            let resolvedFile = url.standardizedFileURL.path
+            let relativePath = resolvedFile.replacingOccurrences(of: resolvedRoot + "/", with: "")
             let lines = content.components(separatedBy: .newlines)
 
             for (index, line) in lines.enumerated() {
