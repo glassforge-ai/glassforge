@@ -119,6 +119,11 @@ pub struct PersonaLoader {
 }
 
 impl PersonaLoader {
+    /// Create an empty loader with no personas.
+    pub fn empty() -> Self {
+        Self { personas: Vec::new() }
+    }
+
     /// Load all `.md` persona files from `dir` (recursively).
     pub fn load_from_dir(dir: &Path) -> Result<Self, PersonaError> {
         let mut personas = Vec::new();
