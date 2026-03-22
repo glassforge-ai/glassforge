@@ -14,4 +14,6 @@ pub use repos::agents::AgentRepo;
 pub use repos::events::{EventRepo, StoredEvent};
 pub use repos::sessions::{NewSession, Session, SessionRepo};
 pub use repos::skills::{Skill, SkillRepo, SkillRule};
+pub use repos::scans::{Scan, ScanRepo};
+pub use repos::migration_runs::{MigrationRun, MigrationRunRepo, MigrationTask as DbMigrationTask};
 pub use repos::workflows::{Workflow, WorkflowRepo};

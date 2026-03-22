@@ -1,7 +1,7 @@
 //! Application state shared across handlers.
 
 use gf_core::EventBus;
-use gf_db::{DbPool, EventRepo, SessionRepo};
+use gf_db::{DbPool, EventRepo, MigrationRunRepo, ScanRepo, SessionRepo};
 use gf_persona::PersonaLoader;
 use gf_process::BackendRegistry;
 use gf_safety::{CircuitBreaker, CostTracker, RateLimiter};
@@ -13,6 +13,8 @@ pub struct AppState {
     pub db: Arc<DbPool>,
     pub session_repo: Arc<SessionRepo>,
     pub event_repo: Arc<EventRepo>,
+    pub scan_repo: Arc<ScanRepo>,
+    pub migration_run_repo: Arc<MigrationRunRepo>,
     pub event_bus: Arc<EventBus>,
     pub circuit_breaker: Arc<CircuitBreaker>,
     pub rate_limiter: Arc<RateLimiter>,
@@ -33,11 +35,15 @@ impl AppState {
     ) -> Result<Self, gf_core::ForgeError> {
         let conn = db.conn_arc()?;
         let session_repo = Arc::new(SessionRepo::new(conn.clone()));
-        let event_repo = Arc::new(EventRepo::new(conn));
+        let event_repo = Arc::new(EventRepo::new(conn.clone()));
+        let scan_repo = Arc::new(ScanRepo::new(conn.clone()));
+        let migration_run_repo = Arc::new(MigrationRunRepo::new(conn));
         Ok(Self {
             db,
             session_repo,
             event_repo,
+            scan_repo,
+            migration_run_repo,
             event_bus,
             circuit_breaker,
             rate_limiter,

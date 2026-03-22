@@ -17,6 +17,8 @@ const MIGRATION_011: &str = include_str!("../../../migrations/0011_org_charts.sq
 const MIGRATION_012: &str = include_str!("../../../migrations/0012_agents_persona_id.sql");
 const MIGRATION_013: &str = include_str!("../../../migrations/0013_safety_state.sql");
 const MIGRATION_014: &str = include_str!("../../../migrations/0014_agents_backend_type.sql");
+const MIGRATION_015: &str = include_str!("../../../migrations/0015_scans.sql");
+const MIGRATION_016: &str = include_str!("../../../migrations/0016_migrations.sql");
 
 pub struct Migrator<'a> {
     conn: &'a Connection,
@@ -71,6 +73,8 @@ impl<'a> Migrator<'a> {
             (12, "0012_agents_persona_id.sql", MIGRATION_012),
             (13, "0013_safety_state.sql", MIGRATION_013),
             (14, "0014_agents_backend_type.sql", MIGRATION_014),
+            (15, "0015_scans.sql", MIGRATION_015),
+            (16, "0016_migrations.sql", MIGRATION_016),
         ];
 
         for &(version, name, sql) in migrations {
